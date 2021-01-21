@@ -8,6 +8,7 @@ const [name, setName] = useState('');
 const [address, setAddress] = useState('');
 const [city, setCity] = useState('');
 const [zip, setZip] = useState('');
+const [value, setValue] = useState('');
 
     const history = useHistory();
   const dispatch = useDispatch();
@@ -35,29 +36,29 @@ const [zip, setZip] = useState('');
                 required
                 placeholder='Name'
                 value={}
-                onChange={() =>setName(event.target.value)}></input>
+                onChange={(event) =>setName(event.target.value)}></input>
 
                 <input 
                 required
                 placeholder='StreetAddress'
                 value={}
-                onChange={() =>setAddress(event.target.value)}></input>
+                onChange={(event) =>setAddress(event.target.value)}></input>
 
                 <input 
                 required
                 placeholder='City'
                 value={}
-                onChange={() =>setCity(event.target.value)}></input>
+                onChange={(event) =>setCity(event.target.value)}></input>
 
                 <input 
                 required
                 placeholder='Zip code'
                 value={}
-                onChange={() =>setZip(event.target.value)}></input>
+                onChange={(event) =>setZip(event.target.value)}></input>
 
                 <label for="DorT"> Choose a reception method:</label>
-                <select name="DorT" id = "DorT">
-                    <option value ="delivery">Delivery</option>
+                <select  onChange={(event) =>setValue(event.target.value)} name="DorT" id = "DorT">
+                    <option value="delivery">Delivery</option>
                     <option value="pickup">Pickup</option>
                 </select>
 
