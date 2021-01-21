@@ -6,7 +6,10 @@ function PizzaList() {
 
     const dispatch = useDispatch();
 
-    const []
+    const [menu, setMenu] = useState([]);
+
+    const [isAdd, setIsAdd] = useState(true);
+    
 
     useEffect(() => {
         getPizza();
@@ -16,22 +19,49 @@ function PizzaList() {
         axios.get('/pizza')
         .then(response => {
             
-            dispatch(action);
+           setMenu(response.data);
         }).catch(error => {
             alert('error in getting Pizza List');
             console.log(error);
         })
     }; //end getPizza
 
+    const flipButton = () => {
+        setIsAdd(!isAdd);
+    }; //end flipButton
+
+    function handleAdd() {
+        console.log('clicked Add');
+    }; //end handleAdd
+
+    function handleDelete() {
+        console.log('clicked Delete');
+    }; //end handleDelete
+
+    function handleNext() {
+        console.log('clicked Next');
+    }; //end handleNext
+
 
 
     return (
 
-        const pizzaList = useSelector(store => store.pizzaReducer)
-
         <div>
-            {pizzaList.map((pizza, index) =>)}
-            
+            {menu.map((pizza) =>
+            <div key={pizza.id}>{pizza.image_path}{pizza.name}{pizza.description}{pizza.price}
+            </div>
+            )}
+            <div key={pizza.id}>
+                {isAdd ?
+                <button
+                onClick={handleAdd} >ADD</button>
+                :
+                <button
+                onClick={handleDelete}>REMOVE</button>                
+                }
+                
+            </div>
+            <button onClick={}>NEXT</button>
         </div>
 
 
