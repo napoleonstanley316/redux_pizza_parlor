@@ -8,11 +8,11 @@
   [ ] add or remove pizzas from cart
   [ ] button that brings use to order details page
 
-[ ] order details page - enter customer information ('/api/order')
-  [ ] collecting customer information:
-    [ ] name, address, city, zip
-    [ ] order type (pickup/delivery)
-    [ ] button to bring us to checkout page
+[x] order details page - enter customer information ('/api/order')
+  [x] collecting customer information:
+    [x] name, address, city, zip
+    [x] order type (pickup/delivery)
+    [x] button to bring us to checkout page
 
 [ ] checkout page
   [ ] take all order information, display on dom read only

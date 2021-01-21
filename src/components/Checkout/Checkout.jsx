@@ -4,7 +4,6 @@ import {useSelector} from 'react-redux'
 
 function Checkout() {
 
-
     const infoReducer = useSelector(state => state.infoReducer)
 
     console.log('In checkout');
@@ -21,14 +20,12 @@ return (
       <p>{infoReducer.time}</p>
       <table>
         <tbody>
-
+            
         </tbody>
       </table>
     </section>
 
-
 )
-
 
 
 }
