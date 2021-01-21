@@ -24,6 +24,11 @@
   [ ] not appear in the nav bar ('/admin')
   [ ] display name, time, and completed orders
 
+[ ] need two reducers
+  [ ] one for pizza items ordered 'pizzaReducer'
+  [ ] one for customer info
+  'infoReducer'
+
 # Server
 [ ] three tables
   [ ] list of pizzas - pizza menu
@@ -31,6 +36,8 @@
   [ ] line item - should give us values that we need for admin page
 
 [ ] GET request to obtain list of pizzas available to order
-[ ] 
+[ ] POST from order details to add customer information to the database
+[ ] GET route for admin page to display customer information and order information
+
 
 
