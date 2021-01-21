@@ -18,7 +18,13 @@ const [value, setValue] = useState('');
 
       console.log(`Adding Customer Information`, {name, address, city, zip});
 
-      dispatch({type: 'SET_NEW_INFO', payload:{ name, address, city, zip, value}})
+      dispatch(
+          {type: 'SET_NEW_INFO', 
+          payload:{ customer_name: name, 
+            street_address: address, 
+            city: city, 
+            zip: zip, 
+            type: value}})
 
       history.push('/checkout')
   }
@@ -35,25 +41,25 @@ const [value, setValue] = useState('');
                 <input 
                 required
                 placeholder='Name'
-                value={}
+                value={name}
                 onChange={(event) =>setName(event.target.value)}></input>
 
                 <input 
                 required
                 placeholder='StreetAddress'
-                value={}
+                value={address}
                 onChange={(event) =>setAddress(event.target.value)}></input>
 
                 <input 
                 required
                 placeholder='City'
-                value={}
+                value={city}
                 onChange={(event) =>setCity(event.target.value)}></input>
 
                 <input 
                 required
                 placeholder='Zip code'
-                value={}
+                value={zip}
                 onChange={(event) =>setZip(event.target.value)}></input>
 
                 <label for="DorT"> Choose a reception method:</label>
