@@ -17,7 +17,7 @@ const [zip, setZip] = useState('');
 
       console.log(`Adding Customer Information`, {name, address, city, zip});
 
-      dispatch({type: 'SET_NEW_INFO', payload:{ name, address, city, zip}})
+      dispatch({type: 'SET_NEW_INFO', payload:{ name, address, city, zip, value}})
 
       history.push('/checkout')
   }
@@ -25,6 +25,10 @@ const [zip, setZip] = useState('');
     return(
         // input fields for the user to enter data which can be used for delivery
         <section>
+        <header>
+            <h1>Prime Pizza</h1>
+            {/* show total price of items selected by the customer */}
+        </header>
             <h2>Step 2: Customer Information</h2>
             <form onSubmit={handleSubmit}>
                 <input 
