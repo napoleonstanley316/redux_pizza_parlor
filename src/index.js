@@ -8,7 +8,17 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+
 // list of reducers
+
+/* object template for pizzaReducer:
+  { 
+    id: ,
+    name: ,
+    price: ,
+  }
+*/
+
 const pizzaReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_PIZZA':
@@ -21,16 +31,18 @@ const pizzaReducer = (state = [], action) => {
   }
 };
 
-const infoReducer = (
-  state = {
-    customer_name: '',
-    street_address: '',
-    city: '',
-    zip: '',
-    type: '',
-  },
-  action
-) => {
+
+/* object template for infoReducer: 
+  { 
+    customer_name: , 
+    street_address: ,
+    city: ,
+    zip: ,
+    type:
+  }
+*/
+
+const infoReducer = (state = {}, action) => {
   switch (action.type) {
     case 'SET_NEW_INFO':
       return action.type.payload;
