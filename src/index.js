@@ -45,7 +45,7 @@ const pizzaReducer = (state = [], action) => {
 const infoReducer = (state = {}, action) => {
   switch (action.type) {
     case 'SET_NEW_INFO':
-      return action.type.payload;
+      return action.payload;
     default:
       return state;
   }
