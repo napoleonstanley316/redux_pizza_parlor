@@ -28,7 +28,8 @@ const infoReducer = (
     city: '',
     zip: '',
     type: '',
-  }
+  },
+  action
 ) => {
   switch (action.type) {
     case 'SET_NEW_INFO':
