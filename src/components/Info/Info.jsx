@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
 function Info(){
+    // setting up state to hold variables from user
 const [name, setName] = useState('');
 const [address, setAddress] = useState('');
 const [city, setCity] = useState('');
@@ -22,6 +23,7 @@ const [zip, setZip] = useState('');
   }
 
     return(
+        // input fields for the user to enter data which can be used for delivery
         <section>
             <h2>Step 2: Customer Information</h2>
             <form onSubmit={handleSubmit}>
@@ -49,9 +51,16 @@ const [zip, setZip] = useState('');
                 value={}
                 onChange={() =>setZip(event.target.value)}></input>
 
+                <label for="DorT"> Choose a reception method:</label>
+                <select name="DorT" id = "DorT">
+                    <option value ="delivery">Delivery</option>
+                    <option value="pickup">Pickup</option>
+                </select>
+
                 <button type='submit'>
                     Next
                 </button>
+                
             </form>
         </section>
     );
