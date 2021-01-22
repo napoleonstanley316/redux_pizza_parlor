@@ -38,4 +38,4 @@ function Checkout() {
   );
 }
 
-export default Info;
+export default Checkout;
