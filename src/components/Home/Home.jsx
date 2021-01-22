@@ -8,7 +8,7 @@ function Home() {
 
   const [menu, setMenu] = useState([]);
 
-  const [isAdd, setIsAdd] = useState(true);
+  let isAdd = true;
 
   useEffect(() => {
     getPizza();
@@ -27,16 +27,14 @@ function Home() {
       });
   }; //end getPizza
 
-  const flipButton = () => {
-    setIsAdd(!isAdd);
-  }; //end flipButton
-
   function handleAdd() {
     console.log('clicked Add');
+    !isAdd;
   } //end handleAdd
 
   function handleDelete() {
     console.log('clicked Delete');
+    !isAdd;
   } //end handleDelete
 
   function handleNext() {
@@ -58,12 +56,6 @@ function Home() {
           )}
         </div>
       ))}
-      {/* <div key={pizza.id}> */}
-      {/* {isAdd ? (
-          <button onClick={handleAdd}>ADD</button>
-        ) : (
-          <button onClick={handleDelete}>REMOVE</button>
-        )} */}
       <button onClick={handleNext}>NEXT</button>
     </div>
   );

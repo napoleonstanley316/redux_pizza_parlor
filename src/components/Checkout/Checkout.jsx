@@ -1,14 +1,11 @@
 import Info from '../Info/Info.jsx';
-import {useSelector} from 'react-redux'
-
+import { useSelector } from 'react-redux';
 
 function Checkout() {
+  const infoReducer = useSelector((state) => state.infoReducer);
 
-    const infoReducer = useSelector(state => state.infoReducer)
-
-    console.log('In checkout');
-return (
-
+  console.log('In checkout');
+  return (
     <section>
       <h2>Order Information</h2>
       <p>{infoReducer.customer_name}</p>
@@ -19,16 +16,10 @@ return (
       <p>{infoReducer.total}</p>
       <p>{infoReducer.time}</p>
       <table>
-        <tbody>
-            
-        </tbody>
+        <tbody></tbody>
       </table>
     </section>
-
-)
-
-
+  );
 }
 
-
-export default Info;
+export default Checkout;
