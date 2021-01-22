@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import {useHistory} from 'react-router-dom';
 
 function Home() {
   const dispatch = useDispatch();
   const [menu, setMenu] = useState([]);
-  let isAdd = true;
+  const [isAdd, setIsAdd] = useState(true);
 
   useEffect(() => {
     getPizza();
@@ -24,18 +25,27 @@ function Home() {
       });
   }; //end getPizza
 
-  function handleAdd() {
+  const handleAdd = (pizza) => {
+    let pizzaToSend = {id: pizza.id, name: pizza.name, price: pizza.price}
+    
     console.log('clicked Add');
-    !isAdd;
+    setIsAdd(!isAdd);
+    dispatch({ type: 'SET_PIZZA', payload: pizzaToSend })
   } //end handleAdd
 
-  function handleDelete() {
+  const handleDelete = (pizza) => {
+    
     console.log('clicked Delete');
-    !isAdd;
+    setIsAdd(!isAdd);
+    dispatch({ type: 'REMOVE_PIZZA', payload: pizza.id})
   } //end handleDelete
 
-  function handleNext() {
+  const handleNext = (pizza) => {
+    
     console.log('clicked Next');
+    
+    history.push('/info');
+    
   } //end handleNext
 
   return (
@@ -47,9 +57,9 @@ function Home() {
           {pizza.description}
           {pizza.price}
           {isAdd ? (
-            <button onClick={handleAdd}>ADD</button>
+            <button onClick={ () => handleAdd(pizza)}>ADD</button>
           ) : (
-            <button onClick={handleDelete}>REMOVE</button>
+            <button onClick={ () => handleDelete(pizza)}>REMOVE</button>
           )}
         </div>
       ))}
