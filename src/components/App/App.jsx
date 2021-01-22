@@ -28,8 +28,7 @@ function App() {
         </header>
         <Route path="/" exact component={Home} />
         <Route path="/info" component={Info} />
-        {/* 
-        <Route path="/checkout" component={Checkout} />
+        {/*<Route path="/checkout" component={Checkout} />
         <Route path="/admin" component={Admin} /> */}
       </div>
     </Router>
