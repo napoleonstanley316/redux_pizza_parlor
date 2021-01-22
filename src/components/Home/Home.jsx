@@ -9,8 +9,8 @@ function Home() {
 
   const [menu, setMenu] = useState([]);
   const [isAdd, setIsAdd] = useState(true);
+  const [total, setTotal] = useState(0);
   const pizzaReducer = useSelector((state) => state.pizzaReducer);
-  const totalReducer = useSelector((state) => state.totalReducer);
 
   useEffect(() => {
     getPizza();
@@ -45,7 +45,13 @@ function Home() {
   }; //end handleDelete
 
   const getTotal = () => {
-    dispatch({ type: 'SET_TOTAL', payload: pizzaReducer });
+    if (pizzaReducer.length !== 0) {
+      return setTotal(
+        pizzaReducer.reduce((acc, item) => {
+          return acc + item.price;
+        })
+      );
+    }
   };
 
   const handleNext = () => {
@@ -55,7 +61,7 @@ function Home() {
 
   return (
     <div>
-      <p>Total: {totalReducer}</p>
+      <p>Total: {total}</p>
       {menu.map((pizza) => (
         <div key={pizza.id}>
           <img src={pizza.image_path} />
