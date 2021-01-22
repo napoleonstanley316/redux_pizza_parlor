@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
-          <nav>
+          <nav className="navBox">
             <ul>
               <li>
                 <Link to="/">Home</Link>

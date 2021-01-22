@@ -8,9 +8,13 @@ function Home() {
   const history = useHistory();
 
   const [menu, setMenu] = useState([]);
-  const [isAdd, setIsAdd] = useState(true);
+
+ 
+
+ 
   const [total, setTotal] = useState(0);
   const pizzaReducer = useSelector((state) => state.pizzaReducer);
+
 
   useEffect(() => {
     getPizza();
@@ -33,14 +37,15 @@ function Home() {
   const handleAdd = (pizza) => {
     let pizzaToSend = { id: pizza.id, name: pizza.name, price: pizza.price };
     console.log('clicked Add');
-    setIsAdd(!isAdd);
+
     dispatch({ type: 'SET_PIZZA', payload: pizzaToSend });
     getTotal();
   }; //end handleAdd
 
+
   const handleDelete = (pizza) => {
     console.log('clicked Delete');
-    setIsAdd(!isAdd);
+
     dispatch({ type: 'REMOVE_PIZZA', payload: pizza.id });
     getTotal();
   }; //end handleDelete
@@ -62,15 +67,19 @@ function Home() {
 
   return (
     <div>
-      <p>Total: {total}</p>
+
       {menu.map((pizza) => (
-        <div key={pizza.id}>
-          <img src={pizza.image_path} />
-          {pizza.name}
-          {pizza.description}
-          {pizza.price}
-          <button onClick={() => handleAdd(pizza)}>ADD</button>
-          <button onClick={() => handleDelete(pizza)}>REMOVE</button>
+        <div className="pizzaBox" key={pizza.id}>
+           
+            <div><img src={pizza.image_path} /></div>
+            {pizza.name}
+            {pizza.description}
+            {pizza.price}
+            <div className="buttonBox">
+                <button className="addBtn" onClick={ () => handleAdd(pizza)}>➕</button>
+                <button className="removeBtn" onClick={ () => handleDelete(pizza)}>➖</button>
+            </div>
+
         </div>
       ))}
       <button onClick={handleNext}>NEXT</button>
