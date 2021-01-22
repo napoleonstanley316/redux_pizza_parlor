@@ -62,11 +62,8 @@ function Home() {
           {pizza.name}
           {pizza.description}
           {pizza.price}
-          {isAdd ? (
-            <button onClick={() => handleAdd(pizza)}>ADD</button>
-          ) : (
-            <button onClick={() => handleDelete(pizza)}>REMOVE</button>
-          )}
+          <button onClick={() => handleAdd(pizza)}>ADD</button>
+          <button onClick={() => handleDelete(pizza)}>REMOVE</button>
         </div>
       ))}
       <button onClick={handleNext}>NEXT</button>
