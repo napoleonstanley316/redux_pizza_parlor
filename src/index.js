@@ -24,7 +24,7 @@ const pizzaReducer = (state = [], action) => {
     case 'SET_PIZZA':
       return [...state, action.payload];
     case 'REMOVE_PIZZA':
-      let id = action.payload.id;
+      let id = action.payload;
       return state.filter((entry) => entry.id !== id);
     default:
       return state;
