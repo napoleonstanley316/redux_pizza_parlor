@@ -1,26 +1,24 @@
 import Info from '../Info/Info.jsx';
-import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux';
+import {useHistory} from 'react-redux';
 
 
 function Checkout() {
 
     const infoReducer = useSelector(state => state.infoReducer)
-
-    const [checkoutList, setCheckoutList] = useState([]);
-  
+    const history = useHistory();
     
+  
+
     const handleCheckout = () => {
       console.log('handleCheckout clicked!');
-      axios({
-        method: 'POST',
-        url: '/api/order'
-      }).then((response) =>{
+      axios.post('/api/order', infoReducer
+      ).then((response) =>{
         console.log('sending order details', response);
-        setCheckoutList(infoReducer.data)
-          console.log(checkoutList);
+        history.push('/');
 
       }).catch(function (error) {
-        console.log('Error on get:', error);
+        console.log('Error on Post:', error);
       });
   }
 
