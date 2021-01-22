@@ -8,7 +8,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-
 // list of reducers
 
 /* object template for pizzaReducer:
@@ -31,6 +30,17 @@ const pizzaReducer = (state = [], action) => {
   }
 };
 
+const totalReducer = (state = 0, action) => {
+  let pizzaArray = action.payload;
+  switch (action.type) {
+    case 'SET_TOTAL':
+      return pizzaArray.reduce((acc, item) => {
+        return acc + item.price;
+      });
+    default:
+      return state;
+  }
+};
 
 /* object template for infoReducer: 
   { 
@@ -56,6 +66,7 @@ const storeInstance = createStore(
   combineReducers({
     pizzaReducer,
     infoReducer,
+    totalReducer,
   }),
   applyMiddleware(logger)
 );
