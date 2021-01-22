@@ -1,10 +1,21 @@
+
 import Info from '../Info/Info.jsx';
 import { useSelector } from 'react-redux';
+
 
 function Checkout() {
   const infoReducer = useSelector((state) => state.infoReducer);
 
-  console.log('In checkout');
+
+  const infoReducer = useSelector((state) => state.infoReducer);
+  const pizzaReducer = useSelector((state) => state.pizzaReducer);
+
+  const handleCheckout = () => {
+      console.log('handleCheckout clicked!');
+  }
+
+  console.log("In checkout");
+
   return (
     <section>
       <h2>Order Information</h2>
@@ -16,7 +27,20 @@ function Checkout() {
       <p>{infoReducer.total}</p>
       <p>{infoReducer.time}</p>
       <table>
-        <tbody></tbody>
+
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th>Cost</th>
+          </tr>
+          <tr>
+              <td>{pizzaReducer.name}</td>
+              <td>{pizzaReducer.price}</td>
+          </tr>
+          <button onClick={handleCheckout}>Checkout</button>
+        </tbody>
+
+
       </table>
     </section>
   );
