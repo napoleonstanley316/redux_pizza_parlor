@@ -13,3 +13,21 @@
 .App-title {
   font-size: 2em;
 }
+
+.photoBox {
+  cursor: pointer;
+  display: inling-blick;
+  border-style: double;
+  margin: 5px;
+  padding: 5px;
+  height: 300px;
+  width: 220px;
+  box-shadow: 0 4px 10px #291528;
+
+}
+
+img {
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+}

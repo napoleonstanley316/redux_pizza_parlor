@@ -52,7 +52,7 @@ function Home() {
   } //end handleNext
 
   return (
-    <div>
+    <div className="pizzaBox">
       {menu.map((pizza) => (
         <div key={pizza.id}>
           <img src={pizza.image_path} />
