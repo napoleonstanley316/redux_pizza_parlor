@@ -1,18 +1,24 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Home() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-
   const [menu, setMenu] = useState([]);
-  //const [isAdd, setIsAdd] = useState(true);
+
+ 
+
+ 
+  const [total, setTotal] = useState(0);
+  const pizzaReducer = useSelector((state) => state.pizzaReducer);
+
 
   useEffect(() => {
     getPizza();
+    getTotal();
   }, []);
 
   const getPizza = () => {
@@ -29,30 +35,39 @@ function Home() {
   }; //end getPizza
 
   const handleAdd = (pizza) => {
-    let pizzaToSend = {id: pizza.id, name: pizza.name, price: pizza.price}
-    
+    let pizzaToSend = { id: pizza.id, name: pizza.name, price: pizza.price };
     console.log('clicked Add');
-    //setIsAdd(!isAdd);
-    dispatch({ type: 'SET_PIZZA', payload: pizzaToSend })
-  } //end handleAdd
+
+    dispatch({ type: 'SET_PIZZA', payload: pizzaToSend });
+    getTotal();
+  }; //end handleAdd
+
 
   const handleDelete = (pizza) => {
-    
     console.log('clicked Delete');
-    //setIsAdd(!isAdd);
-    dispatch({ type: 'REMOVE_PIZZA', payload: pizza.id})
-  } //end handleDelete
 
-  const handleNext = (pizza) => {
-    
+    dispatch({ type: 'REMOVE_PIZZA', payload: pizza.id });
+    getTotal();
+  }; //end handleDelete
+
+  const getTotal = () => {
+    if (pizzaReducer.length !== 0) {
+      return setTotal(
+        pizzaReducer.reduce((acc, item) => {
+          return acc += item.price;
+        })
+      );
+    }
+  };
+
+  const handleNext = () => {
     console.log('clicked Next');
-    
     history.push('/info');
-    
-  } //end handleNext
+  }; //end handleNext
 
   return (
     <div>
+
       {menu.map((pizza) => (
         <div className="pizzaBox" key={pizza.id}>
            
@@ -64,6 +79,7 @@ function Home() {
                 <button className="addBtn" onClick={ () => handleAdd(pizza)}>➕</button>
                 <button className="removeBtn" onClick={ () => handleDelete(pizza)}>➖</button>
             </div>
+
         </div>
       ))}
       <button onClick={handleNext}>NEXT</button>

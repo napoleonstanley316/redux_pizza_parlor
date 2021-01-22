@@ -8,7 +8,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-
 // list of reducers
 
 /* object template for pizzaReducer:
@@ -30,7 +29,6 @@ const pizzaReducer = (state = [], action) => {
       return state;
   }
 };
-
 
 /* object template for infoReducer: 
   { 
