@@ -14,6 +14,7 @@ function Home() {
 
   useEffect(() => {
     getPizza();
+    getTotal();
   }, []);
 
   const getPizza = () => {
@@ -48,7 +49,7 @@ function Home() {
     if (pizzaReducer.length !== 0) {
       return setTotal(
         pizzaReducer.reduce((acc, item) => {
-          return acc + item.price;
+          return acc += item.price;
         })
       );
     }
