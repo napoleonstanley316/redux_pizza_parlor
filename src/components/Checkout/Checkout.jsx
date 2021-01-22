@@ -1,6 +1,6 @@
 import Info from '../Info/Info.jsx';
 import {useSelector} from 'react-redux';
-import {useHistory} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 function Checkout() {
@@ -56,4 +56,4 @@ return (
 }
 
 
-export default Info;
+export default Checkout;
