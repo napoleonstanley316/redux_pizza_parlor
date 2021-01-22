@@ -1,6 +1,7 @@
 import Info from '../Info/Info.jsx';
 import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Checkout() {
@@ -41,7 +42,7 @@ return (
             <tr>
             <th>Name</th>
             <th>Cost</th>
-            <button onClick={handleCheckout}>Checkout</button>
+            <th><button onClick={handleCheckout}>Checkout</button></th>
           </tr>
           <tr>
               <td>{pizzaReducer.name}</td>
