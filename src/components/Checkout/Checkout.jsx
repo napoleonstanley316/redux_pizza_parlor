@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux';
 
 
 function Checkout() {
-  const infoReducer = useSelector((state) => state.infoReducer);
-
-
+  
   const infoReducer = useSelector((state) => state.infoReducer);
   const pizzaReducer = useSelector((state) => state.pizzaReducer);
 

@@ -5,6 +5,9 @@ import {useHistory} from 'react-router-dom';
 
 function Home() {
   const dispatch = useDispatch();
+  const history = useHistory();
+
+
   const [menu, setMenu] = useState([]);
   const [isAdd, setIsAdd] = useState(true);
 
