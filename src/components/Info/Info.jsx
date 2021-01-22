@@ -18,16 +18,13 @@ function Info() {
 
     console.log(`Adding Customer Information`, { name, address, city, zip });
 
-    dispatch({
-      type: 'SET_NEW_INFO',
-      payload: {
-        customer_name: name,
-        street_address: address,
-        city: city,
-        zip: zip,
-        type: value,
-      },
-    });
+      dispatch(
+          {type: 'SET_NEW_INFO', 
+          payload:{ customer_name: name, 
+            street_address: address, 
+            city: city, 
+            zip: zip, 
+            type: value}})
 
     history.push('/checkout');
   };
