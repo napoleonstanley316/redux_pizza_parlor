@@ -37,7 +37,15 @@ return (
       <p>{infoReducer.time}</p>
       <table>
         <tbody>
-            
+            <tr>
+            <th>Name</th>
+            <th>Cost</th>
+          </tr>
+          <tr>
+              <td>{pizzaReducer.name}</td>
+              <td>{pizzaReducer.price}</td>
+          </tr>
+          <button onClick={handleCheckout}>Checkout</button>
         </tbody>
       </table>
     </section>
