@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 function Checkout() {
 
     const infoReducer = useSelector(state => state.infoReducer)
+    const pizzaReducer = useSelector((state) => state.pizzaReducer);
     const history = useHistory();
     
   
@@ -40,12 +41,13 @@ return (
             <tr>
             <th>Name</th>
             <th>Cost</th>
+            <button onClick={handleCheckout}>Checkout</button>
           </tr>
           <tr>
               <td>{pizzaReducer.name}</td>
               <td>{pizzaReducer.price}</td>
           </tr>
-          <button onClick={handleCheckout}>Checkout</button>
+          
         </tbody>
       </table>
     </section>
